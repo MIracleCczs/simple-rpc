@@ -1,11 +1,12 @@
 package com.miracle.rpc.test.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import lombok.*;
+import org.apache.commons.lang3.ClassUtils;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
 
 /**
  * @author : miracle
@@ -25,6 +26,5 @@ public class User implements Serializable {
 
     private String password;
 
-    private Address address;
-
+    private Object address;
 }

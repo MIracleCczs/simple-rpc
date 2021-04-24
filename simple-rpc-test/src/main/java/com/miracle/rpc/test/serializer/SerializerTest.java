@@ -1,5 +1,6 @@
 package com.miracle.rpc.test.serializer;
 
+import com.alibaba.fastjson.JSON;
 import com.miracle.rpc.serializer.SerializerEngine;
 import com.miracle.rpc.test.model.Address;
 import com.miracle.rpc.test.model.User;
@@ -17,14 +18,14 @@ public class SerializerTest {
         User user = User.builder().address(address).age(20).username("miracle").password("miracle").build();
 
         User defaultSerializer = SerializerEngine.deserialize(SerializerEngine.serialize(user, "1"), User.class, "1");
-        User jacksonSerializer = SerializerEngine.deserialize(SerializerEngine.serialize(user, "2"), User.class, "2");
-        User fastjsonSerializer = SerializerEngine.deserialize(SerializerEngine.serialize(user, "3"), User.class, "3");
-        User hessianSerializer = SerializerEngine.deserialize(SerializerEngine.serialize(user, "4"), User.class, "4");
+        User fastjsonSerializer = SerializerEngine.deserialize(SerializerEngine.serialize(user, "2"), User.class, "2");
+        User hessianSerializer = SerializerEngine.deserialize(SerializerEngine.serialize(user, "3"), User.class, "3");
+
+
 /*
         User protobufSerializer = SerializerEngine.deserialize(SerializerEngine.serialize(user, "5"), User.class, "5");
 */
         System.out.println(defaultSerializer);
-        System.out.println(jacksonSerializer);
         System.out.println(fastjsonSerializer);
         System.out.println(hessianSerializer);
 /*

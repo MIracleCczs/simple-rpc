@@ -1,6 +1,7 @@
 package com.miracle.rpc.serializer;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
 /**
@@ -26,6 +27,6 @@ public class FastJsonSerializer implements ISerializer {
         if (data == null) {
             throw new NullPointerException("FastJsonSerializer deserialize data is null");
         }
-        return JSON.parseObject(new String(data), clazz);
+        return JSONObject.parseObject(new String(data), clazz);
     }
 }

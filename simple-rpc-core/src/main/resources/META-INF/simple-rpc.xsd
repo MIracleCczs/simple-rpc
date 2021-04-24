@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.miracle.com/schema/simple-rpc"
+            xmlns:beans="http://www.springframework.org/schema/beans"
+            targetNamespace="http://www.miracle.com/schema/simple-rpc"
+            elementFormDefault="qualified">
+
+    <xsd:import namespace="http://www.springframework.org/schema/beans"/>
+
+    <xsd:element name="service">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute name="interface" type="xsd:string" use="required"/>
+                    <xsd:attribute name="timeout" type="xsd:int"/>
+                    <xsd:attribute name="ref" type="xsd:string" use="required"/>
+                    <xsd:attribute name="weight" type="xsd:int"/>
+                    <xsd:attribute name="workerThreads" type="xsd:int"/>
+                    <xsd:attribute name="groupName" type="xsd:string"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="reference">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute name="interface" type="xsd:string" use="required"/>
+                    <xsd:attribute name="timeout" type="xsd:int"/>
+                    <xsd:attribute name="consumeThreads" type="xsd:int"/>
+                    <xsd:attribute name="loadBalanceStrategy" type="xsd:string"/>
+                    <xsd:attribute name="remoteAppKey" type="xsd:string" use="required"/>
+                    <xsd:attribute name="groupName" type="xsd:string"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

@@ -10,10 +10,9 @@ import org.apache.commons.lang3.StringUtils;
 public enum SerializerTypeEnum {
 
     DEFAULT_SERIALIZER("1"),
-    JACKSON_SERIALIZER("2"),
-    FASTJSON_SERIALIZER("3"),
-    HESSIAN_SERIALIZER("4"),
-    PROTOBUF_SERIALIZER("5");
+    FASTJSON_SERIALIZER("2"),
+    HESSIAN_SERIALIZER("3"),
+    PROTOBUF_SERIALIZER("4");
 
     private String typeCode;
 

@@ -20,7 +20,6 @@ public class SerializerEngine {
 
     static {
         SERIALIZER_MAP.put(SerializerTypeEnum.DEFAULT_SERIALIZER, new DefaultSerializer());
-        SERIALIZER_MAP.put(SerializerTypeEnum.JACKSON_SERIALIZER, new JacksonSerializer());
         SERIALIZER_MAP.put(SerializerTypeEnum.FASTJSON_SERIALIZER, new FastJsonSerializer());
         SERIALIZER_MAP.put(SerializerTypeEnum.HESSIAN_SERIALIZER, new HessianSerializer());
         SERIALIZER_MAP.put(SerializerTypeEnum.PROTOBUF_SERIALIZER, new ProtoBufSerializer());
@@ -46,7 +45,7 @@ public class SerializerEngine {
             return iSerializer.serialize(obj);
         } catch (Exception e) {
             log.error("SerializerEngine serialize error, obj={}", obj, e);
-            throw new SRpcException("SerializerEngine serialize error");
+            throw new SRpcException("SerializerEngine serialize error", e);
         }
     }
 
@@ -71,7 +70,7 @@ public class SerializerEngine {
             return iSerializer.deserialize(data, clazz);
         } catch (Exception e) {
             log.error("SerializerEngine deserialize error, data={}", data, e);
-            throw new SRpcException("SerializerEngine deserialize error");
+            throw new SRpcException("SerializerEngine deserialize error", e);
         }
     }
 }
